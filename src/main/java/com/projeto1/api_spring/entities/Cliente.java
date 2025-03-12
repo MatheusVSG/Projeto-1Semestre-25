@@ -1,10 +1,19 @@
-package com.projeto1.api_spring.controllers.entities;
+package com.projeto1.api_spring.entities;
 
 public class Cliente {
     private int id;
     private String nome;
     private int idade;
-    
+    private String endereco;
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
     public Cliente() {
     }
     
