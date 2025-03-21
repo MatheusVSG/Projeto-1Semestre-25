@@ -9,3 +9,5 @@ git config --global user.name "MatheusVSG"
 git config --global user.email "siqueiramatheusvitor@gmail.com"
 
 Swagger http://localhost:8080/swagger-ui/index.html#/
+
+Banco H2 http://localhost:8080/h2

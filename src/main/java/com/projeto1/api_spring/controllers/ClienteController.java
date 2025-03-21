@@ -3,11 +3,14 @@ package com.projeto1.api_spring.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projeto1.api_spring.domain.cliente.ClienteService;
 import com.projeto1.api_spring.entities.Cliente;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("/api/cliente")
 public class ClienteController {
 
+    @Autowired
+    private ClienteService clienteservice;
+
     private final List<Cliente> clientes = new ArrayList<>();
     private Integer idCount = 1;
 
@@ -35,8 +41,9 @@ public class ClienteController {
     }
 
     @GetMapping("/ListarCliente")
-    public List<Cliente> ListarClientes(){
-    return clientes;
+    public ResponseEntity<List<Cliente>> ListarClientes(){
+        var clientes = clienteservice.ListarClientes();
+        return new ResponseEntity<>(clientes, HttpStatus.OK);
     }
 
     @DeleteMapping("/ApagarCliente/{id}")
