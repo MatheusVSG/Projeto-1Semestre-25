@@ -18,7 +18,7 @@ public class Cliente {
     private String nome;
 
     @Column()
-    private int idade;
+    private Integer idade;
 
     @Column(nullable = false, length = 60)
     private String endereco;
